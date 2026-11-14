@@ -1,7 +1,7 @@
 ---
-name: {{SKILL_NAME}}
-description: {{PROJECT}} 폴더에서 하는 모든 작업의 공통 절차. 맥락을 유지하며 에이전트와 사용자가 목표를 함께 분명히 해 목적·목표를 달성하기 위한 것이다. 요청 파악(REQ) → 계획(PLAN) → 지시(INS) → 코드(scripts) → 코드 변경 기록(LOG) → 작업 기록(HISTORY) → 체인 봉인 → README 갱신 순으로 진행한다. 이 폴더의 파일을 만들거나 고치기 전에 반드시 읽는다.
-seed: harness_engineering {{SEED_VERSION}} ({{DATE}})
+name: "{{SKILL_NAME}}"
+description: "{{PROJECT}} 폴더에서 하는 모든 작업의 공통 절차. 맥락을 유지하며 에이전트와 사용자가 목표를 함께 분명히 해 목적·목표를 달성하기 위한 것이다. 요청 파악(REQ) → 계획(PLAN) → 지시(INS) → 코드(scripts) → 코드 변경 기록(LOG) → 작업 기록(HISTORY) → 체인 봉인 → README 갱신 순으로 진행한다. 이 폴더의 파일을 만들거나 고치기 전에 반드시 읽는다."
+seed: "harness_engineering {{SEED_VERSION}} ({{DATE}})"
 ---
 
 # {{PROJECT}} 작업 절차

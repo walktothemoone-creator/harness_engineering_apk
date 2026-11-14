@@ -2,6 +2,10 @@
 
 Recorded whenever the common body changes (the docs/ system, the SKILL body, chain.py, the report format, the build_skill procedure). A project planted from this seed knows its version from the `seed:` line in its SKILL.md front matter.
 
+## 1.0.1 — 2026-11-14
+
+- Fix: the front matter of `template/en/SKILL.md` and `template/ko/SKILL.md` was not valid YAML (a value starting with `{{…}}` is read as a flow mapping), so GitHub showed "Error in user YAML". The three values are now quoted. Planted projects are unaffected in behaviour; their `SKILL.md` front matter now carries quoted strings.
+
 ## 1.0.0 — 2026-11-14
 
 First public release.

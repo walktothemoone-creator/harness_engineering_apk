@@ -1,7 +1,7 @@
 ---
-name: {{SKILL_NAME}}
-description: The common procedure for all work in the {{PROJECT}} folder. It exists to keep context and to let the agent and the user sharpen the goal together until the purpose and goal are met. The order is request (REQ) → plan (PLAN) → instructions (INS) → code (scripts) → code change log (LOG) → work history (HISTORY) → seal the chain → update README. Read this before creating or changing any file in this folder.
-seed: harness_engineering {{SEED_VERSION}} ({{DATE}})
+name: "{{SKILL_NAME}}"
+description: "The common procedure for all work in the {{PROJECT}} folder. It exists to keep context and to let the agent and the user sharpen the goal together until the purpose and goal are met. The order is request (REQ) → plan (PLAN) → instructions (INS) → code (scripts) → code change log (LOG) → work history (HISTORY) → seal the chain → update README. Read this before creating or changing any file in this folder."
+seed: "harness_engineering {{SEED_VERSION}} ({{DATE}})"
 ---
 
 # {{PROJECT}} work procedure
