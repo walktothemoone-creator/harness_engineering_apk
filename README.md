@@ -75,7 +75,7 @@ These are not just rules in a document. `tests/property_test.sh` tries to break 
 2. Clone this repository inside it.
 
    ```bash
-   git clone https://github.com/walktothemoone-creator/harness_engineering_jbkjsh.git harness_engineering
+   git clone https://github.com/walktothemoone-creator/harness_engineering_apk.git harness_engineering
    ```
 
 3. In the same chat (where the context still is), tell your agent:

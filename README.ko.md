@@ -75,7 +75,7 @@ scripts/{작업ID}_{slug}/MANIFEST.md   TASK  어떤 코드가 남았는가
 2. 그 안에 이 저장소를 clone 한다.
 
    ```bash
-   git clone https://github.com/walktothemoone-creator/harness_engineering_jbkjsh.git harness_engineering
+   git clone https://github.com/walktothemoone-creator/harness_engineering_apk.git harness_engineering
    ```
 
 3. 같은 채팅(대화 맥락이 남아 있는 곳)에서 에이전트에게 말한다.
