@@ -20,6 +20,21 @@ Talk to the user in the language they use with you. When they write in Korean, f
 | Your working folder *is* this seed repository | Do not plant here. Ask the user one question: "What should the project folder be called, and where?" Suggest a name from the conversation and a place next to this folder. Create it, clone the seed inside it as `harness_engineering/`, work from there, and tell the user to open that folder from now on |
 | Home folder, Desktop, or a folder full of unrelated things | Do not plant there. Propose a new project folder (as above) and ask once |
 
+## Check the environment first
+
+Before cloning or planting anything, make sure the machine can run it. Run these yourself and read the result:
+
+```bash
+python3 --version || python --version || py --version
+git --version
+```
+
+- Needed: **Python 3.8+** and **git**. Use whichever Python command answered (`python3`, `python` or `py`) in every later command.
+- If one is missing, tell the user in plain words what is missing and what you would install, and install only after they agree: macOS `xcode-select --install` (or `brew install python git`), Windows `winget install Python.Python.3.12` and `winget install Git.Git`, Linux `sudo apt install python3 git`. A command that asks for a password is run by the user.
+- If you cannot run commands or touch files at all, you are in a plain chat window: say so (see "Which agent are you?").
+
+After planting, `seed.py init` runs the full check (`scripts/_shared/envcheck.py`) and records the result in the project's `ENVIRONMENT.md`.
+
 ## Set up
 
 Run [build_skill.md](build_skill.md) (Korean: [build_skill.ko.md](build_skill.ko.md)) from the project root, step by step.

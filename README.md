@@ -122,7 +122,7 @@ python3 scripts/_shared/chain.py new first_task "DEMO first task"
 python3 scripts/_shared/chain.py seal --dry-run
 ```
 
-Requirements: Python 3.8+ (standard library only) and git. Written and used with Claude Code, but nothing in it depends on a particular agent — any agent that can read Markdown and run commands can follow it.
+Requirements: Python 3.8+ (standard library only) and git. The agent checks these before it starts and tells you in plain words if something has to be installed; each harness records its environment in `ENVIRONMENT.md` and re-checks it at the start of every task. Written and used with Claude Code, but nothing in it depends on a particular agent — any agent that can read Markdown and run commands can follow it.
 
 ## What is in this repository
 

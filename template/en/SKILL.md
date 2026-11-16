@@ -77,7 +77,13 @@ Code lives in two places. Do not mix them.
 
 ### 1. Read README.md
 
-Check "Current state" and "Remaining work" in `README.md`, then read `PLAYBOOK.md`: if this kind of work has a method and a quality bar there, follow them. If you need more background, read `docs/history/` in work order (`python3 scripts/_shared/chain.py list history`). To see how the code evolved, read `docs/logs/` in the same order (`list logs`). Then check that the chain is intact.
+Check "Current state" and "Remaining work" in `README.md`, then read `PLAYBOOK.md`: if this kind of work has a method and a quality bar there, follow them. If you need more background, read `docs/history/` in work order (`python3 scripts/_shared/chain.py list history`). To see how the code evolved, read `docs/logs/` in the same order (`list logs`). Then check that the machine is ready and that the chain is intact.
+
+```bash
+python3 scripts/_shared/envcheck.py
+```
+
+If it says the environment differs from `ENVIRONMENT.md` (another machine, an update), run it with `--write` and tell the user what changed. If something required is missing, fix it first as `ENVIRONMENT.md` section 2 says. If the project has a `requirements.txt` but no `.venv`, create it as section 3 says.
 
 ```bash
 python3 scripts/_shared/chain.py verify
@@ -126,6 +132,7 @@ Each item (I1, I2 …) names the **PLAN ID it answers**, the actual command or t
 - **Shared scripts are outside the chain**, so guard them by hand: whenever a work item creates or changes one, keep a copy of that version in the work item's folder (it gets sealed) and write its SHA-256 in the INS and the LOG. At the start of a run, compare the shared script's SHA-256 with the last one recorded; if it differs, stop and tell the user
 - If code from an earlier work item must change, do not touch that folder; copy it into the new work folder and change it there (the earlier folder is sealed)
 - Make scripts **give the same result when run again** (idempotent): skip what is already done, never create or send the same thing twice. Where that is impossible (commands that change the state of a target), write "re-run caution" in the MANIFEST together with what to check before running again
+- **Packages and tools**: use the standard library when it is enough. When a package is really needed, install it into `.venv` in this folder (never the system Python), pin it in `requirements.txt`, and add it to `ENVIRONMENT.md` section 3 with this work item's HIST ID. System-level software is installed only after the user agrees
 - Do not hard-code settings; read them from `.env` (`scripts/_shared/envload.py`). When a new key appears, add it to `.env.example` with an explanation
 - In `MANIFEST.md`, record for each file what it does, the **INS ID it answers**, and its verification state (was it actually run?). For a work item without code, write "no code"
 - Only work items whose REQ names `vendor/{app}/` as the deployment target change vendor. The order is: build and verify in scripts → verification state ✅ in the MANIFEST → apply to `vendor/{app}/` based on it. Leave a "vendor application" entry in the MANIFEST (which file went where in vendor)

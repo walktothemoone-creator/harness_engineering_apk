@@ -120,7 +120,7 @@ python3 scripts/_shared/chain.py new first_task "DEMO 첫 작업"
 python3 scripts/_shared/chain.py seal --dry-run
 ```
 
-필요한 것: Python 3.8 이상(표준 라이브러리만), git. Claude Code로 만들고 써 왔지만 특정 에이전트에 기대는 부분은 없다. 마크다운을 읽고 명령을 실행할 수 있는 에이전트면 따라 할 수 있다.
+필요한 것: Python 3.8 이상(표준 라이브러리만), git. 에이전트가 시작 전에 이것을 확인하고, 설치할 것이 있으면 쉬운 말로 알려 준다. 하네스마다 환경을 `ENVIRONMENT.md`에 기록하고 작업을 시작할 때마다 다시 확인한다. Claude Code로 만들고 써 왔지만 특정 에이전트에 기대는 부분은 없다. 마크다운을 읽고 명령을 실행할 수 있는 에이전트면 따라 할 수 있다.
 
 ## 이 저장소에 있는 것
 

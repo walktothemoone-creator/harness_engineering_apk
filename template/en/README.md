@@ -40,6 +40,7 @@ Remaining work (the next task starts with number 1)
 {{PROJECT}}/
 ├── README.md            this document (entry point, current state)
 ├── SKILL.md             the common work procedure for agents
+├── ENVIRONMENT.md       what the work needs on a machine; checked by scripts/_shared/envcheck.py
 ├── PLAYBOOK.md          the best current method, quality bar, lessons — updated after every task
 ├── AGENTS.md, CLAUDE.md what an agent reads automatically when it opens this folder
 ├── outputs/             finished results for the user to open (copies; the sealed originals are in scripts/)

@@ -2,6 +2,16 @@
 
 Recorded whenever the common body changes (the docs/ system, the SKILL body, chain.py, the report format, the build_skill procedure). A project planted from this seed knows its version from the `seed:` line in its SKILL.md front matter.
 
+## 1.4.0 — 2026-11-17
+
+Environment setup is part of building and of every task.
+
+- `scripts/_shared/envcheck.py` (planted): checks Python 3.8+, the Python command to use (`python3`/`python`/`py`), git, UTF-8 file names, write permission, project packages; `--write` records the result in `ENVIRONMENT.md`; without it, compares and reports a changed machine. Records nothing personal
+- `ENVIRONMENT.md` (planted, outside the chain): this machine, base requirements with install commands per OS, and the project's own packages and tools (`.venv` + pinned `requirements.txt`)
+- `seed.py init` runs the check and writes `ENVIRONMENT.md`; `seed.py check` requires it to pass
+- AGENTS.md "Check the environment first" and build_skill step 0: verify Python and git before cloning or planting; install only with the user's agreement
+- SKILL step 1 runs `envcheck.py`; step 5 has the rule for packages and tools
+
 ## 1.3.1 — 2026-11-16
 
 From a five-work-item test of the PLAYBOOK mechanism (setup, three weekly runs, one improvement).

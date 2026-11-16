@@ -41,6 +41,7 @@ description: 채팅으로 해 오던 일에서 반복성·지속성이 보일 �
 ls -la; ls harness_engineering
 ```
 
+- 환경: 무엇보다 먼저 Python 3.8 이상과 git이 있어야 한다 (`python3 --version || python --version || py --version`, `git --version`). 없으면 [AGENTS.md](AGENTS.md)의 "Check the environment first"를 따른다 — 무엇이 없는지 쉬운 말로 알리고, 사용자가 동의한 뒤에만 설치한다
 - 프로젝트 루트에 이미 `SKILL.md`나 `docs/`가 있으면 **멈추고 묻는다**: 기존 하네스를 고치는(업그레이드) 것인지, 다른 폴더에 새로 심는 것인지. `seed.py init`은 있는 파일을 덮어쓰지 않지만, 섞이면 체인이 엉킨다
 - 프로젝트 루트가 이상하면(홈 폴더, 바탕화면 등 여러 일이 섞인 곳) 멈추고 어느 폴더가 프로젝트인지 묻는다
 - 프로젝트 루트에 이미 있던 파일(코드, 자료)은 옮기지 않는다. 0단계에서 목록만 적어 두고 4단계 HISTORY의 "현재 자산"에 남긴다
@@ -85,7 +86,9 @@ ls -la; ls harness_engineering
 python3 harness_engineering/tools/seed.py init --lang ko --prefix <접두어> --title "<README 제목>" --user-call "<호칭>"
 ```
 
-생기는 것: `README.md`, `SKILL.md`, `AGENTS.md`, `CLAUDE.md`, `PLAYBOOK.md`, `outputs/`, `.env.example`, `.gitignore`, `scripts/_shared/chain.py`, `scripts/_shared/envload.py`, 그리고 뼈대인 `docs/` — `README.md`(문서 체계 설명), `_templates/`(문서 양식 6개), `req/` `plan/` `instruction/` `logs/` `history/`.
+생기는 것: `README.md`, `SKILL.md`, `AGENTS.md`, `CLAUDE.md`, `PLAYBOOK.md`, `ENVIRONMENT.md`, `outputs/`, `.env.example`, `.gitignore`, `scripts/_shared/chain.py`, `scripts/_shared/envload.py`, 그리고 뼈대인 `docs/` — `README.md`(문서 체계 설명), `_templates/`(문서 양식 6개), `req/` `plan/` `instruction/` `logs/` `history/`.
+
+`init`은 마지막에 `scripts/_shared/envcheck.py --write`를 실행해 컴퓨터(Python, git, UTF-8, 쓰기 권한)를 확인하고 `ENVIRONMENT.md`에 기록한다. "환경 준비 안 됨"이 나오면 먼저 해결한다. 대화에서 이 일에 패키지나 다른 도구가 필요하다는 것이 드러났으면 `ENVIRONMENT.md` 3절에 적는다 (패키지는 `.venv`에, 버전을 고정한 `requirements.txt`와 함께).
 
 이어서 `README.md`, `SKILL.md`, `.env.example`의 `FILL:` 빈칸을 1단계 표로 채운다. 채운 자리의 `FILL` 주석은 지운다.
 

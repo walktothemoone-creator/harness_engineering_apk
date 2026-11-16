@@ -43,6 +43,7 @@ The user may have given you only this repository's URL. If the seed is not yet a
 ls -la; ls harness_engineering
 ```
 
+- Environment: Python 3.8+ and git must be there before anything else (`python3 --version || python --version || py --version`, `git --version`). If one is missing, follow [AGENTS.md](AGENTS.md) "Check the environment first" — say what is missing in plain words and install only with the user's agreement
 - If the project root already has a `SKILL.md` or `docs/`, **stop and ask**: is this an upgrade of an existing harness, or should a new one be planted in another folder? `seed.py init` never overwrites existing files, but mixing two would tangle the chain
 - If the project root looks wrong (home folder, desktop, a place where several things are mixed), stop and ask which folder is the project
 - Do not move files that were already in the project root (code, material). Just list them in step 0 and leave them in the "existing assets" part of the step 4 HISTORY
@@ -89,7 +90,9 @@ python3 harness_engineering/tools/seed.py init --prefix <prefix> --title "<READM
 
 (`--lang ko` plants the Korean documents and tool messages.)
 
-What appears: `README.md`, `SKILL.md`, `AGENTS.md`, `CLAUDE.md`, `PLAYBOOK.md`, `outputs/`, `.env.example`, `.gitignore`, `scripts/_shared/chain.py`, `scripts/_shared/envload.py`, and the backbone `docs/` — `README.md` (the document system), `_templates/` (the document templates), `req/` `plan/` `instruction/` `logs/` `history/`.
+What appears: `README.md`, `SKILL.md`, `AGENTS.md`, `CLAUDE.md`, `PLAYBOOK.md`, `ENVIRONMENT.md`, `outputs/`, `.env.example`, `.gitignore`, `scripts/_shared/chain.py`, `scripts/_shared/envload.py`, and the backbone `docs/` — `README.md` (the document system), `_templates/` (the document templates), `req/` `plan/` `instruction/` `logs/` `history/`.
+
+`init` ends by running `scripts/_shared/envcheck.py --write`, which checks the machine (Python, git, UTF-8, write permission) and records it in `ENVIRONMENT.md`. If it prints "environment not ready", fix that before going on. If the conversation showed that the work needs packages or other tools, list them in `ENVIRONMENT.md` section 3 (packages go in `.venv` with a pinned `requirements.txt`).
 
 Then fill the `FILL:` blanks in `README.md`, `SKILL.md` and `.env.example` from the step 1 table. Remove the `FILL` comment wherever you fill one.
 

@@ -77,7 +77,13 @@ seed: "harness_engineering {{SEED_VERSION}} ({{DATE}})"
 
 ### 1. README.md를 읽는다
 
-`README.md`의 "현재 상황"과 "남은 일"을 확인하고, 이어서 `PLAYBOOK.md`를 읽는다: 이번 일과 같은 종류의 방법과 품질 기준이 적혀 있으면 그대로 따른다. 배경이 더 필요하면 `docs/history/`를 작업 순서대로 읽는다 (`python3 scripts/_shared/chain.py list history`). 코드가 어떻게 변해 왔는지는 `docs/logs/`를 같은 순서로 읽는다 (`list logs`). 이어서 체인이 온전한지 본다.
+`README.md`의 "현재 상황"과 "남은 일"을 확인하고, 이어서 `PLAYBOOK.md`를 읽는다: 이번 일과 같은 종류의 방법과 품질 기준이 적혀 있으면 그대로 따른다. 배경이 더 필요하면 `docs/history/`를 작업 순서대로 읽는다 (`python3 scripts/_shared/chain.py list history`). 코드가 어떻게 변해 왔는지는 `docs/logs/`를 같은 순서로 읽는다 (`list logs`). 이어서 컴퓨터가 준비됐는지, 체인이 온전한지 본다.
+
+```bash
+python3 scripts/_shared/envcheck.py
+```
+
+환경이 `ENVIRONMENT.md`와 다르다고 나오면(다른 컴퓨터, 업데이트) `--write`로 다시 기록하고 무엇이 바뀌었는지 사용자에게 알린다. 필요한 것이 없으면 `ENVIRONMENT.md` 2절대로 먼저 해결한다. `requirements.txt`는 있는데 `.venv`가 없으면 3절대로 만든다.
 
 ```bash
 python3 scripts/_shared/chain.py verify
@@ -126,6 +132,7 @@ REQ에 쓸 것: 배경(**목적**: 왜 하는가, **목표**: 무엇이 되면 �
 - **공용 스크립트는 체인 밖**이므로 손으로 지킨다: 작업이 공용 스크립트를 만들거나 고칠 때마다 그 판의 사본을 작업 폴더에 두고(봉인된다) SHA-256을 INS와 LOG에 적는다. 실행을 시작할 때 공용 스크립트의 SHA-256을 마지막으로 적힌 값과 비교하고, 다르면 멈추고 사용자에게 알린다
 - 이전 작업의 코드를 고쳐야 하면 그 폴더를 건드리지 말고, 새 작업 폴더에 복사해 고친다 (이전 폴더는 봉인돼 있다)
 - 스크립트는 **다시 돌려도 같은 결과**가 되게 만든다(멱등): 이미 된 것은 건너뛰고, 같은 것을 두 번 만들거나 두 번 보내지 않는다. 그렇게 만들 수 없는 것(대상의 상태를 바꾸는 명령)은 MANIFEST에 "재실행 주의"와 다시 돌리기 전 확인할 것을 적는다
+- **패키지와 도구**: 표준 라이브러리로 충분하면 그것만 쓴다. 패키지가 꼭 필요하면 이 폴더의 `.venv`에 설치하고(시스템 파이썬에는 설치하지 않는다) `requirements.txt`에 버전을 고정해 적고, `ENVIRONMENT.md` 3절에 이 작업의 HIST ID와 함께 추가한다. 시스템 프로그램은 사용자가 동의한 뒤에만 설치한다
 - 설정값은 코드에 적지 않고 `.env`에서 읽는다 (`scripts/_shared/envload.py`). 새 키가 생기면 `.env.example`에 설명과 함께 추가한다
 - `MANIFEST.md`에 파일마다 하는 일, **대응 INS ID**, 검증 상태(실제로 돌려 봤는지)를 적는다. 코드가 없는 작업이면 "코드 없음"이라고 적는다
 - REQ의 배포 대상이 `vendor/{앱}/`인 작업만 vendor를 고친다. 순서는 scripts에서 만들고 검증 → MANIFEST에 검증 상태 ✅ → 그것을 바탕으로 `vendor/{앱}/`에 적용. MANIFEST에 "vendor 적용" 줄(어느 파일이 vendor의 어디로 갔는지)을 남긴다

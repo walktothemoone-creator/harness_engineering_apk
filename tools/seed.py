@@ -26,8 +26,8 @@ from pathlib import Path
 SEED = Path(__file__).resolve().parent.parent          # harness_engineering/
 TEMPLATE = SEED / "template"
 RENAME = {"gitignore": ".gitignore", "env.example": ".env.example"}
-REQUIRED = ["README.md", "SKILL.md", "AGENTS.md", "CLAUDE.md", "PLAYBOOK.md", ".env.example", ".gitignore", "docs/README.md",
-            "scripts/_shared/chain.py", "scripts/_shared/envload.py"]
+REQUIRED = ["README.md", "SKILL.md", "AGENTS.md", "CLAUDE.md", "PLAYBOOK.md", "ENVIRONMENT.md", ".env.example", ".gitignore", "docs/README.md",
+            "scripts/_shared/chain.py", "scripts/_shared/envload.py", "scripts/_shared/envcheck.py"]
 REQUIRED += [f"docs/_templates/{t}.md" for t in ("req", "plan", "instruction", "task", "log", "history")]
 FILL_CHECKED = ["README.md", "SKILL.md", ".env.example"]
 DOC_DIRS = ["docs/req", "docs/plan", "docs/instruction", "docs/logs", "docs/history", "docs/inbox", "outputs"]
@@ -106,7 +106,7 @@ def cmd_init(a) -> int:
             text = src.read_text(encoding="utf-8")
             for k, v in values.items():
                 text = text.replace("{{" + k + "}}", v)
-            if rel.name == "chain.py":
+            if rel.name in ("chain.py", "envcheck.py"):
                 text = re.sub(r'^LANG = "\w+"', f'LANG = "{a.lang}"', text, count=1, flags=re.M)
             dst.write_text(text, encoding="utf-8")
             created.append(dst.relative_to(root).as_posix())
@@ -117,6 +117,9 @@ def cmd_init(a) -> int:
         print(M["created"], f)
     for f in skipped:
         print(M["skipped"], f)
+    env = subprocess.run([sys.executable, str(root / "scripts/_shared/envcheck.py"), "--write"],
+                         cwd=root, capture_output=True, text=True)
+    print(env.stdout.strip())
     print(M["next"])
     return 0
 
@@ -152,6 +155,12 @@ def cmd_check(a) -> int:
         last = (r.stdout.strip().splitlines() or ["(no output)"])[-1]
         bad += r.returncode != 0
         print(f"{'✅' if r.returncode == 0 else '❌'} chain.py verify — {last}")
+    envcheck = root / "scripts/_shared/envcheck.py"
+    if envcheck.exists():
+        r = subprocess.run([sys.executable, str(envcheck)], cwd=root, capture_output=True, text=True)
+        last = (r.stdout.strip().splitlines() or ["(no output)"])[-1]
+        bad += r.returncode != 0
+        print(f"{'✅' if r.returncode == 0 else '❌'} envcheck.py — {last}")
     print(M["done"] if not bad else M["notdone"].format(n=bad))
     return 1 if bad else 0
 

@@ -40,6 +40,7 @@
 {{PROJECT}}/
 ├── README.md            이 문서 (시작점, 현재 상황)
 ├── SKILL.md             에이전트 공통 작업 절차
+├── ENVIRONMENT.md       이 일에 필요한 컴퓨터 환경. scripts/_shared/envcheck.py 가 확인
 ├── PLAYBOOK.md          지금의 가장 좋은 방법·품질 기준·배운 것 — 작업마다 갱신
 ├── AGENTS.md, CLAUDE.md 에이전트가 이 폴더를 열 때 자동으로 읽는 파일
 ├── outputs/             사용자가 열어 볼 완성된 결과물 (사본. 봉인된 원본은 scripts/에)
