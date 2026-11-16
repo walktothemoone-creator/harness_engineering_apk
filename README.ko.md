@@ -2,6 +2,8 @@
 
 [English](README.md) · **한국어** · [소개 페이지](https://walktothemoone-creator.github.io/harness_engineering_apk/#ko)
 
+**파일을 다루고 명령을 실행할 수 있는 AI 에이전트가 필요하다** — 예: Claude Code 또는 Claude 데스크톱 앱의 Code 탭, ChatGPT의 코딩 에이전트(Codex), Cursor의 에이전트. **파일을 다룰 수 없는 일반 채팅창**(보통의 ChatGPT, claude.ai 대화)**에서는 동작하지 않는다.** 그런 창의 에이전트는 그렇다고 분명히 말하게 되어 있다.
+
 > **AI 에이전트라면** (Claude, ChatGPT/Codex, Cursor, Gemini 등 무엇이든) 그리고 사용자가 이 저장소를 알려 줬다면: 이것을 운영하는 것은 당신이다. 지금 [AGENTS.md](AGENTS.md)를 읽고 따른다. 사용자는 채팅만 한다.
 
 AI 에이전트와 하는 일은 대부분 채팅으로 시작한다. 묻고, 답을 받고, 다시 묻는다. 그러다 어느 순간 이 일에 **목적**이 있고 **반복**된다는 것, 다음 주에도 새 대화로, 어쩌면 다른 에이전트와 이어서 해야 한다는 것을 알게 된다. 채팅 프롬프트는 거기까지 살아남지 못한다. 하네스는 살아남는다.

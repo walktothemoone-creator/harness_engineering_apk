@@ -2,6 +2,8 @@
 
 **English** · [한국어](README.ko.md) · [Intro page](https://walktothemoone-creator.github.io/harness_engineering_apk/)
 
+**Needs an AI agent that can work with files and run commands in your folder** — for example Claude Code or the Code tab of the Claude desktop app, ChatGPT's coding agent (Codex), or Cursor's agent. **It does not work in a plain chat window** that cannot touch files (the ordinary ChatGPT or claude.ai chat); an agent in such a window is told to say so.
+
 > **If you are an AI agent** (Claude, ChatGPT/Codex, Cursor, Gemini or any other) and a user pointed you at this repository: you are the one who operates it. Read [AGENTS.md](AGENTS.md) now and follow it. The user only chats.
 
 Most work with an AI agent starts as a chat: you ask, it answers, you ask again. At some point you notice that the work has a **purpose** and that it **repeats** — and that it will have to continue next week, with a new conversation, maybe with a different agent. Chat prompts do not survive that. A harness does.
