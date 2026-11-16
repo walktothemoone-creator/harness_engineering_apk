@@ -37,6 +37,8 @@ chat (one-off) ──repetition and continuity noticed──▶ project folder +
 
 ### 0. Check the ground
 
+The user may have given you only this repository's URL. If the seed is not yet at `<project>/harness_engineering/`, follow [AGENTS.md](AGENTS.md) "Decide where you are" first. Run every command in this procedure yourself; the user only answers in chat.
+
 ```bash
 ls -la; ls harness_engineering
 ```
@@ -87,7 +89,7 @@ python3 harness_engineering/tools/seed.py init --prefix <prefix> --title "<READM
 
 (`--lang ko` plants the Korean documents and tool messages.)
 
-What appears: `README.md`, `SKILL.md`, `.env.example`, `.gitignore`, `scripts/_shared/chain.py`, `scripts/_shared/envload.py`, and the backbone `docs/` — `README.md` (the document system), `_templates/` (the document templates), `req/` `plan/` `instruction/` `logs/` `history/`.
+What appears: `README.md`, `SKILL.md`, `AGENTS.md`, `CLAUDE.md`, `.env.example`, `.gitignore`, `scripts/_shared/chain.py`, `scripts/_shared/envload.py`, and the backbone `docs/` — `README.md` (the document system), `_templates/` (the document templates), `req/` `plan/` `instruction/` `logs/` `history/`.
 
 Then fill the `FILL:` blanks in `README.md`, `SKILL.md` and `.env.example` from the step 1 table. Remove the `FILL` comment wherever you fill one.
 
@@ -142,7 +144,7 @@ Report in the format of SKILL.md step 10. Add the following at the end.
 
 - From now on, any request in this folder goes through the `SKILL.md` procedure
 - When the project becomes a git repository, `harness_engineering/` is already in `.gitignore` (the seed is a separate repository; the version that built this harness is recorded in the `seed:` line of SKILL.md's front matter)
-- To make an agent find this folder automatically: with Claude Code, put a `CLAUDE.md` in the project root with one line "read README.md and SKILL.md before working", or link `SKILL.md` as `.claude/skills/<name>/SKILL.md` — only if the user wants it
+- Any agent that opens this folder later finds `AGENTS.md` (and Claude Code finds `CLAUDE.md`) and follows `SKILL.md` on its own. The user only needs to open this folder in their agent and talk
 
 ## What not to do
 

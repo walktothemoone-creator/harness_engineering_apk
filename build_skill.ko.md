@@ -35,6 +35,8 @@ description: 채팅으로 해 오던 일에서 반복성·지속성이 보일 �
 
 ### 0. 자리 확인
 
+사용자가 이 저장소 주소만 줬을 수도 있다. 씨앗이 아직 `<프로젝트>/harness_engineering/`에 없으면 먼저 [AGENTS.md](AGENTS.md)의 "Decide where you are"를 따른다. 이 절차의 명령은 모두 당신이 실행하고, 사용자는 채팅으로 답만 한다.
+
 ```bash
 ls -la; ls harness_engineering
 ```
@@ -83,7 +85,7 @@ ls -la; ls harness_engineering
 python3 harness_engineering/tools/seed.py init --lang ko --prefix <접두어> --title "<README 제목>" --user-call "<호칭>"
 ```
 
-생기는 것: `README.md`, `SKILL.md`, `.env.example`, `.gitignore`, `scripts/_shared/chain.py`, `scripts/_shared/envload.py`, 그리고 뼈대인 `docs/` — `README.md`(문서 체계 설명), `_templates/`(문서 양식 6개), `req/` `plan/` `instruction/` `logs/` `history/`.
+생기는 것: `README.md`, `SKILL.md`, `AGENTS.md`, `CLAUDE.md`, `.env.example`, `.gitignore`, `scripts/_shared/chain.py`, `scripts/_shared/envload.py`, 그리고 뼈대인 `docs/` — `README.md`(문서 체계 설명), `_templates/`(문서 양식 6개), `req/` `plan/` `instruction/` `logs/` `history/`.
 
 이어서 `README.md`, `SKILL.md`, `.env.example`의 `FILL:` 빈칸을 1단계 표로 채운다. 채운 자리의 `FILL` 주석은 지운다.
 
@@ -138,7 +140,7 @@ SKILL.md 10단계 형식으로 보고한다. 끝에 아래를 덧붙인다.
 
 - 이제부터는 이 폴더에서 어떤 요청이든 `SKILL.md` 절차로 진행된다는 것
 - 프로젝트를 git 저장소로 만들 때 `harness_engineering/`은 `.gitignore`에 들어 있다는 것 (씨앗은 별도 저장소. 어떤 버전으로 만들었는지는 SKILL.md 머리말 `seed:`에 남는다)
-- 에이전트가 이 폴더를 자동으로 찾게 하려면: Claude Code라면 프로젝트 루트에 `CLAUDE.md`를 두고 "작업 전 README.md와 SKILL.md를 읽는다" 한 줄을 넣거나, `SKILL.md`를 `.claude/skills/<이름>/SKILL.md`로 연결할 수 있다 — 사용자가 원할 때만 한다
+- 나중에 이 폴더를 여는 에이전트는 `AGENTS.md`(Claude Code는 `CLAUDE.md`)를 보고 스스로 `SKILL.md`를 따른다. 사용자는 에이전트에서 이 폴더를 열고 말하기만 하면 된다
 
 ## 하지 않는 것
 

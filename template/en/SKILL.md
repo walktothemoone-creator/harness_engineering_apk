@@ -41,6 +41,16 @@ Handle the answer accordingly: if the goal changes, update the REQ (before seali
 
 Working location: the folder this file is in (`{{PROJECT}}/`) — run every command below from here
 
+## The user works through chat
+
+The user does not need to know the commands, the documents or the chain. They talk; you organize.
+
+- Run every command yourself, including `chain.py`. Never ask the user to type a command, except one that needs a password
+- If a command fails, find the cause and fix it yourself; tell the user what happened in one or two plain sentences
+- In chat, use plain words ("saved and locked", "the record is intact"); IDs, hashes and document names belong in the documents. The report in step 10 keeps its fixed format
+- When a conversation starts (the user returns), tell them in two or three sentences where the work stands and what remains, from README, before they have to ask
+- Ask only what only the user can answer: purpose, what counts as done, a choice, approval of anything risky. Decide the rest and record it
+
 ## When to use this procedure
 
 - Creating or changing code, investigating or acting on a target, producing a new document → **the full procedure**

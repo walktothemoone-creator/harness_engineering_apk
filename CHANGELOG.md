@@ -2,6 +2,16 @@
 
 Recorded whenever the common body changes (the docs/ system, the SKILL body, chain.py, the report format, the build_skill procedure). A project planted from this seed knows its version from the `seed:` line in its SKILL.md front matter.
 
+## 1.2.0 — 2026-11-16
+
+The user works through chat only; the agent sets up and manages the harness.
+
+- `AGENTS.md` (+ `CLAUDE.md` pointing to it) at the seed root: what an agent does when a user only gives it this repository's URL — where to plant, how to run build_skill, rules for a chat-only user (run every command, plain words, ask only what only the user can answer)
+- Planted harnesses now get `AGENTS.md` and `CLAUDE.md`, so any agent opening the folder later follows `SKILL.md` without being told. `seed.py check` requires them
+- SKILL: new common section "The user works through chat" — the agent runs and fixes everything, talks in plain words, and tells the returning user where things stand
+- build_skill step 0: start from a bare URL; step 6 no longer suggests adding `CLAUDE.md` by hand
+- README / QUICKSTART: "Just talk to your agent" as the first way in
+
 ## 1.1.0 — 2026-11-16
 
 For using the seed in a team.

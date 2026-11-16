@@ -4,6 +4,10 @@
 
 필요한 것: Python 3.8 이상, git, 명령을 실행할 수 있는 AI 에이전트(예: Claude Code). 설치할 패키지는 없다.
 
+## 0. 가장 짧은 방법
+
+에이전트에서 빈 폴더를 열고 "이 저장소로 내 일에 맞는 하네스를 만들어 줘: https://github.com/walktothemoone-creator/harness_engineering_apk"라고 말한다. 아래 단계를 에이전트가 모두 대신 한다. 아래는 손으로 할 때의 방법이다.
+
 ## 1. 프로젝트 폴더에 씨앗 받기 (1분)
 
 ```bash

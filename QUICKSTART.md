@@ -4,6 +4,10 @@
 
 You need Python 3.8+, git, and an AI agent that can run commands (e.g. Claude Code). Nothing to install.
 
+## 0. The shortest way
+
+Open an empty folder in your agent and say: "Set up a harness for my work from https://github.com/walktothemoone-creator/harness_engineering_apk". The agent does everything below for you. The steps below are for doing it by hand.
+
 ## 1. Put the seed in your project folder (1 min)
 
 ```bash

@@ -8,6 +8,16 @@ This repository is a **seed**. Clone it into any project folder, ask your agent 
 
 It is a personal project, published to offer a working system to anyone who wants to practice harness engineering — and to be evaluated. Criticism, issues and pull requests are very welcome.
 
+## Just talk to your agent
+
+You do not need to know git, Python or the terminal. Open an empty folder in an AI agent that can work with files and run commands (for example the Code tab of the Claude desktop app, or Claude Code), and say:
+
+> Set up a harness for my work from https://github.com/walktothemoone-creator/harness_engineering_apk
+
+The agent reads [AGENTS.md](AGENTS.md), asks you a few plain questions about your work, and builds the harness. From then on you only chat: the agent records, plans, does and checks every request, keeps the record sealed, and tells you where things stand whenever you come back.
+
+**For AI agents:** if a user pointed you here, read [AGENTS.md](AGENTS.md) first and follow it.
+
 ## Why
 
 - An agent forgets everything when the conversation ends. The only thing the next session, or the next agent, can pick up is what is left in files.
@@ -111,6 +121,7 @@ Requirements: Python 3.8+ (standard library only) and git. Written and used with
 ```
 harness_engineering/
 ├── README.md / README.ko.md            this document
+├── AGENTS.md, CLAUDE.md                the entry point for an AI agent: what to do when a user points it here
 ├── QUICKSTART.md / QUICKSTART.ko.md    5-minute start (incl. Windows notes)
 ├── TEAM.md / TEAM.ko.md                rules for using it with more than one person
 ├── examples/ko_demo/                   a finished harness: planted with the tools, two sealed work items, a tested script

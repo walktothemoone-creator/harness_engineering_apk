@@ -26,7 +26,7 @@ from pathlib import Path
 SEED = Path(__file__).resolve().parent.parent          # harness_engineering/
 TEMPLATE = SEED / "template"
 RENAME = {"gitignore": ".gitignore", "env.example": ".env.example"}
-REQUIRED = ["README.md", "SKILL.md", ".env.example", ".gitignore", "docs/README.md",
+REQUIRED = ["README.md", "SKILL.md", "AGENTS.md", "CLAUDE.md", ".env.example", ".gitignore", "docs/README.md",
             "scripts/_shared/chain.py", "scripts/_shared/envload.py"]
 REQUIRED += [f"docs/_templates/{t}.md" for t in ("req", "plan", "instruction", "task", "log", "history")]
 FILL_CHECKED = ["README.md", "SKILL.md", ".env.example"]

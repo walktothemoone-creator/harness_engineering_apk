@@ -8,6 +8,16 @@ AI 에이전트와 하는 일은 대부분 채팅으로 시작한다. 묻고, �
 
 개인 프로젝트이며, 하네스 엔지니어링을 해 보려는 사람들에게 바로 쓸 수 있는 체계를 내놓고 평가받기 위해 공개한다. 비판, 이슈, PR 모두 환영한다.
 
+## 에이전트에게 말만 하면 된다
+
+git, Python, 터미널을 몰라도 된다. 파일을 다루고 명령을 실행할 수 있는 AI 에이전트(예: Claude 데스크톱 앱의 Code 탭, Claude Code)에서 빈 폴더를 열고 이렇게 말한다.
+
+> 이 저장소로 내 일에 맞는 하네스를 만들어 줘: https://github.com/walktothemoone-creator/harness_engineering_apk
+
+에이전트가 [AGENTS.md](AGENTS.md)를 읽고, 하려는 일에 대해 쉬운 질문 몇 가지를 한 뒤 하네스를 만든다. 그다음부터는 채팅만 하면 된다. 에이전트가 요청마다 기록하고, 계획하고, 실행하고, 확인하고, 기록을 봉인하며, 다시 돌아올 때마다 지금 어디까지 왔는지 알려 준다.
+
+**AI 에이전트에게:** 사용자가 이 저장소를 알려 줬다면 먼저 [AGENTS.md](AGENTS.md)를 읽고 따른다.
+
 ## 왜
 
 - 에이전트는 대화가 끝나면 모든 것을 잊는다. 다음 세션이나 다음 에이전트가 이어받을 수 있는 것은 파일로 남은 것뿐이다.
@@ -109,6 +119,7 @@ python3 scripts/_shared/chain.py seal --dry-run
 ```
 harness_engineering/
 ├── README.md / README.ko.md            이 문서
+├── AGENTS.md, CLAUDE.md                AI 에이전트의 입구: 사용자가 이 저장소를 알려 줬을 때 할 일
 ├── QUICKSTART.md / QUICKSTART.ko.md    5분 빠른 시작 (Windows 안내 포함)
 ├── TEAM.md / TEAM.ko.md                여럿이 쓸 때의 규칙
 ├── examples/ko_demo/                   완성된 하네스 예시: 도구로 심고 작업 2개를 봉인, 시험한 스크립트 포함
