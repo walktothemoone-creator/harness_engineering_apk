@@ -16,7 +16,7 @@ Talk to the user in the language they use with you. When they write in Korean, f
 |---|---|
 | A folder that already has `SKILL.md` and `docs/` (a planted harness) | Not this file's job. Read that folder's `README.md` and `SKILL.md` and follow them |
 | A project folder, and this seed is at `./harness_engineering/` | Go to **Set up** |
-| A project folder without the seed (the user only gave the URL) | Clone it: `git clone https://github.com/walktothemoone-creator/harness_engineering_apk.git harness_engineering`, then **Set up** |
+| A project folder without the seed, or an empty folder (the user only gave the URL) | Use this folder as the project. Clone the seed into a subfolder named exactly `harness_engineering`: `git clone https://github.com/walktothemoone-creator/harness_engineering_apk.git harness_engineering`, then **Set up** |
 | Your working folder *is* this seed repository | Do not plant here. Ask the user one question: "What should the project folder be called, and where?" Suggest a name from the conversation and a place next to this folder. Create it, clone the seed inside it as `harness_engineering/`, work from there, and tell the user to open that folder from now on |
 | Home folder, Desktop, or a folder full of unrelated things | Do not plant there. Propose a new project folder (as above) and ask once |
 
@@ -24,11 +24,15 @@ Talk to the user in the language they use with you. When they write in Korean, f
 
 Run [build_skill.md](build_skill.md) (Korean: [build_skill.ko.md](build_skill.ko.md)) from the project root, step by step.
 
-- If the user has not described their work yet, ask in plain words: what the work is, why it keeps coming back, and what "done" looks like. Two or three questions are enough; that conversation is the raw material for work item 000.
+- If the user has not described their work yet, ask in plain words: what the work is, why it keeps coming back, and what "done" looks like. Ask them in one message (about five short questions, including what must never be done and how to address them); that conversation is the raw material for work item 000.
 - Step 2 of build_skill is the only place you need the user's confirmation. Show it as a short summary, not as tables of internal terms.
 - Run every command yourself. Never ask the user to type a command, except one that needs a password.
 
 When `seed.py check` prints "harness complete", the planted folder has its own `AGENTS.md` and `CLAUDE.md`, so any agent that opens the folder later follows `SKILL.md` without being told.
+
+## Which agent are you?
+
+Any agent that can read files and run commands in the user's folder can operate this: Claude (Claude Code, the Code tab of the desktop app), ChatGPT's coding agent (Codex), Cursor's agent, Gemini CLI and others. Nothing here depends on one of them. `README.md` is the entry every agent reads first; it points here. A planted harness carries `AGENTS.md` (read automatically by Codex, Cursor and most agents) and `CLAUDE.md` (Claude), both pointing to the same `SKILL.md`, so the user can switch agents and the work continues from the same record. A chat window that cannot touch files cannot operate a harness; say so plainly if that is where you are.
 
 ## Rules while working for a chat-only user
 

@@ -26,11 +26,11 @@ from pathlib import Path
 SEED = Path(__file__).resolve().parent.parent          # harness_engineering/
 TEMPLATE = SEED / "template"
 RENAME = {"gitignore": ".gitignore", "env.example": ".env.example"}
-REQUIRED = ["README.md", "SKILL.md", "AGENTS.md", "CLAUDE.md", ".env.example", ".gitignore", "docs/README.md",
+REQUIRED = ["README.md", "SKILL.md", "AGENTS.md", "CLAUDE.md", "PLAYBOOK.md", ".env.example", ".gitignore", "docs/README.md",
             "scripts/_shared/chain.py", "scripts/_shared/envload.py"]
 REQUIRED += [f"docs/_templates/{t}.md" for t in ("req", "plan", "instruction", "task", "log", "history")]
 FILL_CHECKED = ["README.md", "SKILL.md", ".env.example"]
-DOC_DIRS = ["docs/req", "docs/plan", "docs/instruction", "docs/logs", "docs/history", "docs/inbox"]
+DOC_DIRS = ["docs/req", "docs/plan", "docs/instruction", "docs/logs", "docs/history", "docs/inbox", "outputs"]
 DEFAULTS = {"en": {"user_call": "Hi", "language": "English"}, "ko": {"user_call": "사용자님", "language": "한국어"}}
 MSG = {
     "en": {"self": "the project root is harness_engineering itself. Clone it inside a project folder.",

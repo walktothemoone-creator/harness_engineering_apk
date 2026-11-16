@@ -1,7 +1,8 @@
 # {{PROJECT}} — {{TITLE}}
 
 <!-- FILL: what this folder is for, in one or two sentences (whose what, and why it keeps going) -->
-**Whatever the task, read this document first.** The work procedure is in [SKILL.md](SKILL.md).
+**Whatever the task, read this document first.** The work procedure is in [SKILL.md](SKILL.md); the best way we currently know to do the work is in [PLAYBOOK.md](PLAYBOOK.md).
+**If you are an AI agent** (Claude, ChatGPT/Codex, Cursor, Gemini or any other): you operate this harness and the user only chats. Read this file, then `SKILL.md` and `PLAYBOOK.md`, before doing anything.
 The procedure of this folder exists to keep context and to let the agent and the user sharpen the goal together until the purpose and goal are met.
 
 Legend: ✅ confirmed · ❌ problem · ⏳ unconfirmed / in progress
@@ -39,6 +40,9 @@ Remaining work (the next task starts with number 1)
 {{PROJECT}}/
 ├── README.md            this document (entry point, current state)
 ├── SKILL.md             the common work procedure for agents
+├── PLAYBOOK.md          the best current method, quality bar, lessons — updated after every task
+├── AGENTS.md, CLAUDE.md what an agent reads automatically when it opens this folder
+├── outputs/             finished results for the user to open (copies; the sealed originals are in scripts/)
 ├── .env                 real settings — never share or commit
 ├── .env.example         list of setting keys, explanations, key ↔ script map
 ├── harness_engineering/ the seed that planted this structure (separate repository) — outside the chain, not committed
@@ -46,7 +50,7 @@ Remaining work (the next task starts with number 1)
 │   ├── README.md        explanation of the document system
 │   ├── _templates/      document templates (read by chain.py new)
 │   ├── LEDGER.md        seal ledger — written by the tool, never by hand (appears at the first seal)
-│   ├── inbox/           drop request documents here beforehand — outside the chain, free to use
+│   ├── inbox/           drop request documents and input files here — outside the chain, not committed (may hold personal data)
 │   ├── req/             Requirements    (REQ)     what is wanted
 │   ├── plan/            Plan            (PLAN)    how it will be done
 │   ├── instruction/     Instructions    (INS)     what exactly is executed

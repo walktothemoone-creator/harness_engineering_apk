@@ -77,7 +77,7 @@ Code lives in two places. Do not mix them.
 
 ### 1. Read README.md
 
-Check "Current state" and "Remaining work" in `README.md`. If you need more background, read `docs/history/` in work order (`python3 scripts/_shared/chain.py list history`). To see how the code evolved, read `docs/logs/` in the same order (`list logs`). Then check that the chain is intact.
+Check "Current state" and "Remaining work" in `README.md`, then read `PLAYBOOK.md`: if this kind of work has a method and a quality bar there, follow them. If you need more background, read `docs/history/` in work order (`python3 scripts/_shared/chain.py list history`). To see how the code evolved, read `docs/logs/` in the same order (`list logs`). Then check that the chain is intact.
 
 ```bash
 python3 scripts/_shared/chain.py verify
@@ -120,6 +120,9 @@ Each item (I1, I2 …) names the **PLAN ID it answers**, the actual command or t
 ### 5. Do the work — scripts (`scripts/{yyyymmdd}_{seq}_{slug}/`), and vendor (`vendor/{app}/`) if required
 
 - Create code only in that work item's folder. Only what several work items share goes in `scripts/_shared/`
+- **Results for the user** (a report, a summary, a draft — anything the user will open or hand on): create it in the work item's folder so it is sealed, then put a copy in `outputs/` under a plain name the user would recognise. Tell the user the `outputs/` path. A work item with no code still has deliverables: list them in the MANIFEST
+- **Input files** (what the user drops in `docs/inbox/`) stay there. Never copy raw input that may hold personal or confidential data into `scripts/` or any document — sealing would make it permanent. Record the input's file name and SHA-256 in the INS so the result can be traced to its input
+- **Recurring work**: the second time the same method is needed, move the script to `scripts/_shared/` (in a work item, with its test) and from then on each run calls it instead of copying it; record the shared script's SHA-256 in that run's INS
 - If code from an earlier work item must change, do not touch that folder; copy it into the new work folder and change it there (the earlier folder is sealed)
 - Make scripts **give the same result when run again** (idempotent): skip what is already done, never create or send the same thing twice. Where that is impossible (commands that change the state of a target), write "re-run caution" in the MANIFEST together with what to check before running again
 - Do not hard-code settings; read them from `.env` (`scripts/_shared/envload.py`). When a new key appears, add it to `.env.example` with an explanation
@@ -167,9 +170,16 @@ You are done only when it prints "chain OK — N documents, head …". **There i
 
 Update the "Current state" table (with its reference time), "Remaining work", the work list table and the history table in `README.md`. README is outside the chain and can be edited freely, and **it must always tell the current state.**
 
+Then update `PLAYBOOK.md` — this is how the work gets better instead of merely repeating. Ask three questions about the work item just sealed, and write down only what the evidence supports (invent nothing; if there is nothing, change nothing):
+1. What went wrong, was slow, or had to be redone? → a row in "Lessons", and if a mistake slipped through, a new check in "Quality bar"
+2. Is there now a better way to do this kind of work? → update "Recurring work — the current method"; raise its level only if this work item proves it
+3. What is still done by hand? → "Improvement candidates", and offer the top one to the user in the report
+
+Every row names the HIST ID it came from.
+
 ### 10. Report to the user
 
-Report in the format below. This format is reused as the report to the manager in the later loop (automatic repetition) and graph (connecting many tasks) stages, so do not change it.
+Report in the format below. This format is reused as the report to the manager in the later loop (automatic repetition) and graph (connecting many tasks) stages, so do not change it. For a user who works through chat, put one plain sentence before it saying what they now have and where to open it (the `outputs/` path).
 
 ```
 Goal: ✅ met / ⏳ partly / ❌ not met — <the goal in one sentence>
@@ -235,4 +245,6 @@ If you did the same lookup, command or judgment by hand in two or more work item
 - [ ] No sealed document or code was edited. No stray file was left in the five `docs/` folders
 - [ ] Every HISTORY traceability row covers all REQ IDs
 - [ ] New `.env` keys are in `.env.example`
+- [ ] Results for the user are in `outputs/`; no raw input with personal data was copied into a sealed folder
+- [ ] `PLAYBOOK.md` was reviewed with the three questions, and what changed names its HIST ID
 - [ ] `README.md` current state (reference time), remaining work and work list reflect the work just done and the reality check

@@ -2,6 +2,8 @@
 
 **English** · [한국어](README.ko.md) · [Intro page](https://walktothemoone-creator.github.io/harness_engineering_apk/)
 
+> **If you are an AI agent** (Claude, ChatGPT/Codex, Cursor, Gemini or any other) and a user pointed you at this repository: you are the one who operates it. Read [AGENTS.md](AGENTS.md) now and follow it. The user only chats.
+
 Most work with an AI agent starts as a chat: you ask, it answers, you ask again. At some point you notice that the work has a **purpose** and that it **repeats** — and that it will have to continue next week, with a new conversation, maybe with a different agent. Chat prompts do not survive that. A harness does.
 
 This repository is a **seed**. Clone it into any project folder, ask your agent to run `build_skill.md`, and the conversation you have had so far grows into a harness: a document backbone (`docs/`), a work procedure (`SKILL.md`), an entry point (`README.md`) and a small tool that links every document and every piece of code into a hash chain.
@@ -17,6 +19,10 @@ You do not need to know git, Python or the terminal. Open an empty folder in an 
 The agent reads [AGENTS.md](AGENTS.md), asks you a few plain questions about your work, and builds the harness. From then on you only chat: the agent records, plans, does and checks every request, keeps the record sealed, and tells you where things stand whenever you come back.
 
 **For AI agents:** if a user pointed you here, read [AGENTS.md](AGENTS.md) first and follow it.
+
+### It gets better as you use it
+
+Every harness carries a `PLAYBOOK.md`. After each task the agent asks what went wrong, whether there is now a better way, and what is still done by hand, and writes the answers there with the work record they came from. The next task starts by reading it. Recurring work moves up one level at a time: recorded → repeatable → tooled → checked → self-running. So the process and the quality of the work rise with use, whichever agent is doing it.
 
 ## Why
 

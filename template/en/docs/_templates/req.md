@@ -7,7 +7,7 @@
 
 ## 2. Original request
 
-> (quote the chat or the docs/req source verbatim)
+> (quote the chat or the docs/inbox source verbatim)
 
 ## 3. Requirements
 

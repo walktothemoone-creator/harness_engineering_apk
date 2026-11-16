@@ -2,6 +2,17 @@
 
 Recorded whenever the common body changes (the docs/ system, the SKILL body, chain.py, the report format, the build_skill procedure). A project planted from this seed knows its version from the `seed:` line in its SKILL.md front matter.
 
+## 1.3.0 — 2026-11-16
+
+Any agent, README first, and work that improves with use. Driven by an end-to-end test (a fresh agent, a bare URL, a non-developer's weekly report task).
+
+- `PLAYBOOK.md` (planted, outside the chain): the current best method per recurring work with a five-step level, the quality bar, lessons, improvement candidates. SKILL step 1 reads it, step 9 updates it with three questions; every row names its HIST ID
+- README (seed and planted) opens with a note to the AI agent, whichever it is; AGENTS.md explains which agents can operate a harness and that switching agents continues from the same record
+- `outputs/`: results for the user are sealed in the work folder and copied to `outputs/` under a plain name; the report tells the user that path in one plain sentence
+- Inputs: `docs/inbox/` is now in `.gitignore`; raw input with personal data is never copied into sealed folders; the INS records the input's SHA-256
+- Recurring work: promote the script to `scripts/_shared/` on second use instead of copying it every time
+- Fix: REQ template said `docs/req` for the request source (now `docs/inbox`); AGENTS.md names the clone folder and the empty-folder case
+
 ## 1.2.0 — 2026-11-16
 
 The user works through chat only; the agent sets up and manages the harness.

@@ -3,3 +3,6 @@
 __pycache__/
 .DS_Store
 harness_engineering/
+
+# raw inputs may contain personal data
+docs/inbox/
