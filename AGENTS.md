@@ -16,7 +16,7 @@ Talk to the user in the language they use with you. When they write in Korean, f
 |---|---|
 | A folder that already has `SKILL.md` and `docs/` (a planted harness) | Not this file's job. Read that folder's `README.md` and `SKILL.md` and follow them |
 | A project folder, and this seed is at `./harness_engineering/` | Go to **Set up** |
-| A project folder without the seed, or an empty folder (the user only gave the URL) | Use this folder as the project. Clone the seed into a subfolder named exactly `harness_engineering`: `git clone https://github.com/walktothemoone-creator/harness_engineering_apk.git harness_engineering`, then **Set up** |
+| A project folder without the seed, or an empty folder (the user only gave the URL) | Use this folder as the project. Clone the seed into a subfolder named exactly `harness_engineering` — the last word of this command matters, without it the folder gets the wrong name: `git clone https://github.com/walktothemoone-creator/harness_engineering_apk.git harness_engineering` — then **Set up** |
 | Your working folder *is* this seed repository | Do not plant here. Ask the user one question: "What should the project folder be called, and where?" Suggest a name from the conversation and a place next to this folder. Create it, clone the seed inside it as `harness_engineering/`, work from there, and tell the user to open that folder from now on |
 | Home folder, Desktop, or a folder full of unrelated things | Do not plant there. Propose a new project folder (as above) and ask once |
 

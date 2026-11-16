@@ -53,7 +53,7 @@ ls -la; ls harness_engineering
 |---|---|---|
 | 목적 | 이 일을 왜 하는가 (사용자가 반복해서 말한 이유) | README 2절 "목적", SKILL "이 폴더가 하는 일" |
 | 지금 목표 | 다음으로 무엇이 되면 한 단계가 끝나는가 | README "지금 단계", 남은 일 1번 |
-| 반복된 작업 | 대화에서 두 번 이상 한 조회·명령·판단 | SKILL "현실 확인", README 6절, 자동화 후보 |
+| 반복된 작업 | 대화에서 두 번 이상 한 조회·명령·판단, 사용자가 말한 반복 업무 | SKILL "현실 확인", README 6절, `PLAYBOOK.md` |
 | 대상 | 다루는 시스템·장비·데이터·저장소, 접속 경로 | README 2절 상태 표 |
 | 배포 대상 | 다른 기기·고객사·웹/앱에 올라가는 코드가 있는가, 기존 개발자의 코드·SDK가 있는가 | README 3절 `vendor/` 현황, SKILL "대상·권한" |
 | 사람·역할 | 누가 소유하고 누가 결정하는가, 보고받는 사람 | README 2절, SKILL "대상·권한" |
@@ -85,7 +85,7 @@ ls -la; ls harness_engineering
 python3 harness_engineering/tools/seed.py init --lang ko --prefix <접두어> --title "<README 제목>" --user-call "<호칭>"
 ```
 
-생기는 것: `README.md`, `SKILL.md`, `AGENTS.md`, `CLAUDE.md`, `.env.example`, `.gitignore`, `scripts/_shared/chain.py`, `scripts/_shared/envload.py`, 그리고 뼈대인 `docs/` — `README.md`(문서 체계 설명), `_templates/`(문서 양식 6개), `req/` `plan/` `instruction/` `logs/` `history/`.
+생기는 것: `README.md`, `SKILL.md`, `AGENTS.md`, `CLAUDE.md`, `PLAYBOOK.md`, `outputs/`, `.env.example`, `.gitignore`, `scripts/_shared/chain.py`, `scripts/_shared/envload.py`, 그리고 뼈대인 `docs/` — `README.md`(문서 체계 설명), `_templates/`(문서 양식 6개), `req/` `plan/` `instruction/` `logs/` `history/`.
 
 이어서 `README.md`, `SKILL.md`, `.env.example`의 `FILL:` 빈칸을 1단계 표로 채운다. 채운 자리의 `FILL` 주석은 지운다.
 
@@ -125,6 +125,8 @@ python3 scripts/_shared/chain.py seal
 ```
 
 그다음 README 1절 이력 표와 3절 작업 목록에 작업 000을 넣는다.
+
+마지막으로 1단계 표로 `PLAYBOOK.md`의 첫 내용을 채운다. 첫 실제 작업이 빈 종이에서 시작하지 않게 하기 위해서다: 사용자가 말한 반복 업무마다 한 줄(사용자가 말한 만큼의 방법, 결과물이 갖춰야 할 모양, 수준은 "— (아직 실행 전)"), 하면 안 되는 것은 품질 기준의 줄로, 손으로 반복한 일은 개선 후보로 적는다. 근거는 `HIST-…-000`. 사용자가 말한 것만 적고, 나머지는 첫 실행이 채우게 둔다.
 
 ### 5. 다 자랐는지 확인한다
 

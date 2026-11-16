@@ -122,7 +122,8 @@ Each item (I1, I2 …) names the **PLAN ID it answers**, the actual command or t
 - Create code only in that work item's folder. Only what several work items share goes in `scripts/_shared/`
 - **Results for the user** (a report, a summary, a draft — anything the user will open or hand on): create it in the work item's folder so it is sealed, then put a copy in `outputs/` under a plain name the user would recognise. Tell the user the `outputs/` path. A work item with no code still has deliverables: list them in the MANIFEST
 - **Input files** (what the user drops in `docs/inbox/`) stay there. Never copy raw input that may hold personal or confidential data into `scripts/` or any document — sealing would make it permanent. Record the input's file name and SHA-256 in the INS so the result can be traced to its input
-- **Recurring work**: the second time the same method is needed, move the script to `scripts/_shared/` (in a work item, with its test) and from then on each run calls it instead of copying it; record the shared script's SHA-256 in that run's INS
+- **Recurring work**: the second time the same method is needed, finish that run as usual and offer the user to turn the method into a shared tool. When they agree, do it as its own work item: the script and its tests go to `scripts/_shared/`, and from then on each run calls it instead of copying it
+- **Shared scripts are outside the chain**, so guard them by hand: whenever a work item creates or changes one, keep a copy of that version in the work item's folder (it gets sealed) and write its SHA-256 in the INS and the LOG. At the start of a run, compare the shared script's SHA-256 with the last one recorded; if it differs, stop and tell the user
 - If code from an earlier work item must change, do not touch that folder; copy it into the new work folder and change it there (the earlier folder is sealed)
 - Make scripts **give the same result when run again** (idempotent): skip what is already done, never create or send the same thing twice. Where that is impossible (commands that change the state of a target), write "re-run caution" in the MANIFEST together with what to check before running again
 - Do not hard-code settings; read them from `.env` (`scripts/_shared/envload.py`). When a new key appears, add it to `.env.example` with an explanation
@@ -186,8 +187,9 @@ Goal: ✅ met / ⏳ partly / ❌ not met — <the goal in one sentence>
 Done: <key results, 1–3 lines>
 Not verified: <⏳ items and why, or "none">
 Remaining / next goal candidates: <1–3, so the user can choose>
+Next improvement: <the one improvement you offer from PLAYBOOK, or "none">
 Evidence: <link to the HISTORY file>
-Chain: OK / problem — <N> documents, head <first 12 characters>
+Record: intact / problem — <N> documents, check value <first 12 characters of the head>
 ```
 
 ## docs/ works like a blockchain — idempotent and immutable
@@ -218,7 +220,7 @@ REQ → PLAN → INS → TASK(MANIFEST + code in the folder) → LOG → HISTORY
 
 ## When you notice repetition
 
-If you did the same lookup, command or judgment by hand in two or more work items, write it under HISTORY "Remaining work" as an "automation candidate". If the user wants, build a script for it as a new work item, and move it to `scripts/_shared/` when several work items use it. This is the raw material for the next stage (loop engineering).
+If you did the same lookup, command or judgment by hand in two or more work items, write it under HISTORY "Remaining work" as an "automation candidate" and in `PLAYBOOK.md` "Improvement candidates", and offer it to the user. When the user agrees, build it as a new work item in `scripts/_shared/` (step 5, "Recurring work"). This is the raw material for the next stage (loop engineering).
 
 ## Rules to keep
 
@@ -227,6 +229,8 @@ If you did the same lookup, command or judgment by hand in two or more work item
 - Write answers and documents in {{LANGUAGE}}. Keep code names and commands as they are
 
 **Secrets**
+- Results in `outputs/` and in sealed work folders may quote customer or internal text. Before the folder is shared or made a git repository, tell the user what such text it holds; do not publish it without their decision
+- Input files in `docs/inbox/` are the user's: do not edit them, and ask the user how long to keep ones that hold personal data
 - Never copy values from `.env` (passwords, keys, tokens) into documents, output or commits. Use key names only
 - Runs that need a password typed in are done by the user
 

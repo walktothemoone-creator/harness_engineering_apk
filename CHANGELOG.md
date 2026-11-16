@@ -2,6 +2,17 @@
 
 Recorded whenever the common body changes (the docs/ system, the SKILL body, chain.py, the report format, the build_skill procedure). A project planted from this seed knows its version from the `seed:` line in its SKILL.md front matter.
 
+## 1.3.1 — 2026-11-16
+
+From a five-work-item test of the PLAYBOOK mechanism (setup, three weekly runs, one improvement).
+
+- build_skill step 4 seeds `PLAYBOOK.md` from the conversation, so the first task does not start from an empty playbook
+- PLAYBOOK levels: at most one level per work item, a level counts only after a real run used it, and the level says what it does not cover yet; standing checks belong in the quality bar from the first run; lessons do not cite step numbers; finished candidates move to a "Done" list
+- One rule for promoting recurring work: offer on second use, build as its own work item when the user agrees
+- Shared scripts (outside the chain): keep a sealed copy of each version in the work folder, record its SHA-256, compare at the start of a run
+- Report format: the last line is now "Record: intact — N documents, check value …" (was "Chain: … head …"), plus a "Next improvement" line
+- Rules for customer text in results and for keeping input files
+
 ## 1.3.0 — 2026-11-16
 
 Any agent, README first, and work that improves with use. Driven by an end-to-end test (a fresh agent, a bare URL, a non-developer's weekly report task).

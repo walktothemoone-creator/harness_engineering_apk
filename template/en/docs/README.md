@@ -90,6 +90,8 @@ Only documents created by `chain.py new` live in these five folders. Notes, draf
 
 One limit to know: the ledger is a file inside `docs/`, so someone who rewrites documents *and* the ledger together cannot be detected from this folder alone. That is why the head is reported outside (in the report to the user, or in a git commit) — a rewritten past no longer matches the head that was reported.
 
-## Request documents — `inbox/`
+## Request documents and input files — `inbox/`
+
+`docs/inbox/` also holds the input files of the work (exports, source data). They are never committed (`.gitignore`) and never copied into sealed folders, because they may hold personal data.
 
 To give a request as a document instead of in chat, put it in `docs/inbox/`. The agent copies it into the REQ's "Original request". `inbox/` is outside the chain; the five document folders hold only documents created by `chain.py new`.

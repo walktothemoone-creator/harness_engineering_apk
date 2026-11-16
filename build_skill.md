@@ -55,7 +55,7 @@ Re-read the conversation from the beginning and fill in the table below. Leave b
 |---|---|---|
 | Purpose | why this work is done (the reason the user kept repeating) | README section 2 "Purpose", SKILL "What this folder is for" |
 | Goal now | what, once achieved, ends the current stage | README "Stage now", remaining work no. 1 |
-| Repeated work | lookups, commands or judgments done twice or more in the conversation | SKILL "Reality check", README section 6, automation candidates |
+| Repeated work | lookups, commands or judgments done twice or more in the conversation, and the recurring work the user described | SKILL "Reality check", README section 6, `PLAYBOOK.md` |
 | Targets | systems, devices, data, repositories being handled; access paths | README section 2 state table |
 | Deployment targets | is there code that ships to another device, a customer, the web or an app? is there earlier developers' code or an SDK? | README section 3 "`vendor/` status", SKILL "Targets and permissions" |
 | People and roles | who owns what, who decides, who receives reports | README section 2, SKILL "Targets and permissions" |
@@ -89,7 +89,7 @@ python3 harness_engineering/tools/seed.py init --prefix <prefix> --title "<READM
 
 (`--lang ko` plants the Korean documents and tool messages.)
 
-What appears: `README.md`, `SKILL.md`, `AGENTS.md`, `CLAUDE.md`, `.env.example`, `.gitignore`, `scripts/_shared/chain.py`, `scripts/_shared/envload.py`, and the backbone `docs/` — `README.md` (the document system), `_templates/` (the document templates), `req/` `plan/` `instruction/` `logs/` `history/`.
+What appears: `README.md`, `SKILL.md`, `AGENTS.md`, `CLAUDE.md`, `PLAYBOOK.md`, `outputs/`, `.env.example`, `.gitignore`, `scripts/_shared/chain.py`, `scripts/_shared/envload.py`, and the backbone `docs/` — `README.md` (the document system), `_templates/` (the document templates), `req/` `plan/` `instruction/` `logs/` `history/`.
 
 Then fill the `FILL:` blanks in `README.md`, `SKILL.md` and `.env.example` from the step 1 table. Remove the `FILL` comment wherever you fill one.
 
@@ -129,6 +129,8 @@ python3 scripts/_shared/chain.py seal
 ```
 
 Then add work item 000 to the README section 1 history table and section 3 work list.
+
+Finally give `PLAYBOOK.md` its first content from the step 1 table, so the first real task does not start from an empty page: one row per recurring work the user described (the method as far as the user stated it, what the result must look like, level "— (not run yet)"), the things not to do as rows of the quality bar, and repeated manual work as improvement candidates. Cite `HIST-…-000`. Write only what the user said; leave the rest for the first run to fill.
 
 ### 5. Check that it has grown
 
