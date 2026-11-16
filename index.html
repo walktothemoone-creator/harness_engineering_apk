@@ -82,7 +82,13 @@ html[lang="ko"] [data-l="ko"] { display:revert; }
 <h2>It gets better as you use it</h2>
 <p>Every harness carries a <code>PLAYBOOK.md</code>: the best way found so far to do the work. Before each task the agent reads it; after each task it asks what went wrong, whether there is a better way, and what is still done by hand — and writes the answers down with the work record they came from.</p>
 <div class="flow"><span>1 Recorded</span><i>→</i><span>2 Repeatable</span><i>→</i><span>3 Tooled</span><i>→</i><span>4 Checked</span><i>→</i><span>5 Self-running</span></div>
-<p>Recurring work moves up one level at a time, only on evidence. The process and the quality of the work rise with use.</p>
+<ul>
+  <li><b>It starts filled.</b> At setup the agent writes the recurring work you described into the playbook, so the first task does not begin from an empty page.</li>
+  <li><b>Levels are earned.</b> At most one level per task, only after a real run used it, and each level says what it still does not cover.</li>
+  <li><b>Second time, it offers a tool.</b> When the same method is needed again, the agent offers to turn it into a shared, tested script; you decide.</li>
+  <li><b>Plain reports.</b> Each task ends with what you now have and where to open it, one suggested improvement, and a last line like "Record: intact — 30 documents".</li>
+</ul>
+<p class="note"><b>Tried end to end.</b> A fresh agent given only the repository address built a harness and ran five tasks in a row (three weekly reports and one improvement). The playbook grew after every task and the recurring work rose from level 1 to 4. In the third week the automatic checks passed a wrong count; the playbook's "read the report" step caught it, and it became a new check. So far tested with Claude only.</p>
 
 <h2>Why</h2>
 <ul>
@@ -171,7 +177,13 @@ python3 scripts/_shared/chain.py seal --dry-run</code></pre>
 <h2>쓸수록 나아집니다</h2>
 <p>모든 하네스에는 <code>PLAYBOOK.md</code>가 있습니다. 지금까지 알아낸 가장 좋은 작업 방법입니다. 에이전트는 작업 전에 이것을 읽고, 작업 후에는 무엇이 틀렸는지, 더 좋은 방법이 생겼는지, 아직 손으로 하는 것이 무엇인지 묻고, 근거가 된 작업 기록과 함께 적습니다.</p>
 <div class="flow"><span>1 기록됨</span><i>→</i><span>2 반복 가능</span><i>→</i><span>3 도구화</span><i>→</i><span>4 검사됨</span><i>→</i><span>5 스스로 실행</span></div>
-<p>반복 작업은 근거가 있을 때만 한 단계씩 올라갑니다. 쓰는 만큼 작업 프로세스와 수준이 올라갑니다.</p>
+<ul>
+  <li><b>처음부터 채워져 있습니다.</b> 설치할 때 에이전트가 말씀하신 반복 업무를 플레이북에 적어 두어, 첫 작업이 빈 종이에서 시작하지 않습니다.</li>
+  <li><b>수준은 근거로 올립니다.</b> 한 작업에 한 단계까지만, 실제로 써 본 뒤에만 올리고, 아직 지키지 못하는 것을 함께 적습니다.</li>
+  <li><b>두 번째에는 도구를 제안합니다.</b> 같은 방법이 다시 필요해지면 시험을 갖춘 공용 스크립트로 만들자고 제안하고, 결정은 사용자가 합니다.</li>
+  <li><b>쉬운 보고.</b> 작업이 끝나면 무엇이 생겼고 어디서 열어 보는지, 개선 제안 하나, 그리고 "기록: 온전함 — 문서 30개" 같은 마지막 줄로 알려 줍니다.</li>
+</ul>
+<p class="note"><b>처음부터 끝까지 돌려 봤습니다.</b> 저장소 주소만 받은 새 에이전트가 하네스를 만들고 작업 5개(주간 보고서 3번과 개선 1번)를 이어서 했습니다. 작업마다 플레이북이 쌓였고 반복 작업의 수준이 1에서 4로 올라갔습니다. 셋째 주에는 자동 검사가 틀린 건수를 통과시켰는데, 플레이북의 "보고서를 읽는다" 단계가 잡아냈고 새 검사로 추가됐습니다. 지금까지는 Claude로만 시험했습니다.</p>
 
 <h2>왜</h2>
 <ul>
@@ -243,7 +255,7 @@ python3 scripts/_shared/chain.py seal --dry-run</code></pre>
 </div>
 
 <footer>
-  <span data-l="en">Personal project, MIT license. Questions and feedback: </span><span data-l="ko">개인 프로젝트, MIT 라이선스. 질문과 피드백: </span><a href="https://github.com/walktothemoone-creator/harness_engineering_apk/issues">GitHub Issues</a>
+  <span data-l="en">Seed v1.3.1. Personal project, MIT license. Questions and feedback: </span><span data-l="ko">씨앗 v1.3.1. 개인 프로젝트, MIT 라이선스. 질문과 피드백: </span><a href="https://github.com/walktothemoone-creator/harness_engineering_apk/issues">GitHub Issues</a>
 </footer>
 </main>
 <script>
