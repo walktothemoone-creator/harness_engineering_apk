@@ -46,6 +46,7 @@ Remaining work (the next task starts with number 1)
 │   ├── README.md        explanation of the document system
 │   ├── _templates/      document templates (read by chain.py new)
 │   ├── LEDGER.md        seal ledger — written by the tool, never by hand (appears at the first seal)
+│   ├── inbox/           drop request documents here beforehand — outside the chain, free to use
 │   ├── req/             Requirements    (REQ)     what is wanted
 │   ├── plan/            Plan            (PLAN)    how it will be done
 │   ├── instruction/     Instructions    (INS)     what exactly is executed
@@ -67,7 +68,7 @@ Remaining work (the next task starts with number 1)
 ## 4. Work procedure (summary — details in SKILL.md)
 
 1. Read this `README.md` and check whether reality changed since the reference time
-2. Understand the request from chat or `docs/req/` and record it as a **REQ** (write the purpose and goal, align with the user)
+2. Understand the request from chat or `docs/inbox/` and record it as a **REQ** (write the purpose and goal, align with the user)
 3. Write the **PLAN** in `docs/plan/` (each item answers a REQ)
 4. Write the **INS** in `docs/instruction/` (each item answers a PLAN item)
 5. Create code in `scripts/{work id}_{slug}/` and list it in **MANIFEST.md** (each item answers an INS item)

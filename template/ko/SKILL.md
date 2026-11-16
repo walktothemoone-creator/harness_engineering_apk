@@ -39,7 +39,7 @@ seed: "harness_engineering {{SEED_VERSION}} ({{DATE}})"
 
 답을 받으면 그에 맞게 처리한다: 목표를 바꾸는 것이면 REQ를 고치고(봉인 전), 새 작업이면 2단계부터 새로 시작한다. 가벼운 질문이나 상태 확인처럼 목표와 충돌하지 않는 말에는 되묻지 않고 답한다.
 
-작업 위치: `{{PROJECT_PATH}}/` (아래 명령은 모두 여기서 실행)
+작업 위치: 이 파일이 있는 폴더 (`{{PROJECT}}/`) — 아래 명령은 모두 여기서 실행
 
 ## 언제 이 절차를 쓰나
 
@@ -81,7 +81,7 @@ python3 scripts/_shared/chain.py verify
 
 ### 2. 요청을 파악한다 — REQ
 
-요청은 채팅 또는 `docs/req/`에 미리 놓인 문서에서 온다. 먼저 이 요청을 다루는 작업이 이미 있는지 본다 (`python3 scripts/_shared/chain.py status`). 봉인 안 된 작업이 있으면 그것을 이어서 쓰고, 이미 봉인된 작업이 같은 요청을 끝냈으면 새로 만들지 않고 그 HISTORY를 알려 준다. 없을 때만 새 작업 뼈대를 만든다 (순번은 자동, 같은 제목·slug의 미봉인 작업이 있으면 도구가 거부한다).
+요청은 채팅 또는 `docs/inbox/`에 미리 놓인 문서에서 온다 (`docs/req/`에는 도구가 만든 REQ만 둔다 — 다른 파일이 있으면 `verify`가 실패한다). 먼저 이 요청을 다루는 작업이 이미 있는지 본다 (`python3 scripts/_shared/chain.py status`). 봉인 안 된 작업이 있으면 그것을 이어서 쓰고, 이미 봉인된 작업이 같은 요청을 끝냈으면 새로 만들지 않고 그 HISTORY를 알려 준다. 없을 때만 새 작업 뼈대를 만든다 (순번은 자동, 같은 제목·slug의 미봉인 작업이 있으면 도구가 거부한다).
 
 ```bash
 python3 scripts/_shared/chain.py new <slug> "<제목>"
@@ -89,7 +89,7 @@ python3 scripts/_shared/chain.py new <slug> "<제목>"
 
 - `<slug>`: 영문 소문자·숫자·밑줄의 짧은 이름. `<제목>`: 문서 제목. 제목은 `{{PREFIX}}_`로 시작한다 (예: `"{{PREFIX}} 무엇을 하는 작업"`)
 - 여섯 파일이 생긴다: `docs/req|plan|instruction|logs|history/{yyyymmdd}_{순번}_{제목}.md`, `scripts/{yyyymmdd}_{순번}_{slug}/MANIFEST.md`. 본문 양식은 `docs/_templates/`에서 온다
-- `docs/req/`에 사용자가 넣어 둔 요청 문서가 있으면 그 내용을 REQ의 "요청 원문"에 옮기고 출처 파일명을 적는다
+- `docs/inbox/`에 사용자가 넣어 둔 요청 문서가 있으면 그 내용을 REQ의 "요청 원문"에 옮기고 출처 파일명을 적는다. inbox 파일은 체인 밖이라 그대로 두어도, 지워도 된다
 
 REQ에 쓸 것: 배경(**목적**: 왜 하는가, **목표**: 무엇이 되면 끝인가, **배포 대상**: 없음 또는 `vendor/{앱}/`) / **요청 원문(그대로 인용)** / 요구사항 표(R1, R2 … 와 수용 기준) / 범위 밖·제약.
 

@@ -71,6 +71,9 @@ scripts/{작업ID}_{slug}/MANIFEST.md   TASK  어떤 코드가 남았는가
 
 ## 빠른 시작
 
+> 바쁘면: [QUICKSTART.ko.md](QUICKSTART.ko.md) (5분) · 완성된 예시: [examples/ko_demo/](examples/ko_demo/) · 여럿이 쓸 때: [TEAM.ko.md](TEAM.ko.md)
+
+
 1. 채팅으로 일하다가 "이건 계속할 일이다" 싶으면 프로젝트 폴더를 만든다.
 2. 그 안에 이 저장소를 clone 한다.
 
@@ -106,6 +109,9 @@ python3 scripts/_shared/chain.py seal --dry-run
 ```
 harness_engineering/
 ├── README.md / README.ko.md            이 문서
+├── QUICKSTART.md / QUICKSTART.ko.md    5분 빠른 시작 (Windows 안내 포함)
+├── TEAM.md / TEAM.ko.md                여럿이 쓸 때의 규칙
+├── examples/ko_demo/                   완성된 하네스 예시: 도구로 심고 작업 2개를 봉인, 시험한 스크립트 포함
 ├── build_skill.md / build_skill.ko.md  에이전트가 실행하는 절차: 대화 → 하네스
 ├── template/
 │   ├── common/        언어와 무관: .gitignore, scripts/_shared/chain.py, envload.py
@@ -113,7 +119,7 @@ harness_engineering/
 │   └── ko/            같은 것의 한국어판
 ├── tools/seed.py      init(씨앗 심기) / check(빈칸·필수 파일·체인)
 ├── tests/property_test.sh   다섯 성질을 깨 보고 지켜지는지 확인
-├── VERSION, CHANGELOG.md
+├── LICENSE (MIT), VERSION, CHANGELOG.md
 ```
 
 ### 공통과 프로젝트 칸

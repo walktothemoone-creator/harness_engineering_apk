@@ -71,6 +71,9 @@ These are not just rules in a document. `tests/property_test.sh` tries to break 
 
 ## Quick start
 
+> In a hurry: [QUICKSTART.md](QUICKSTART.md) (5 minutes) · a finished example: [examples/ko_demo/](examples/ko_demo/) · more than one person: [TEAM.md](TEAM.md)
+
+
 1. You have been working in chat and decide "this is going to continue". Create a project folder.
 2. Clone this repository inside it.
 
@@ -108,6 +111,9 @@ Requirements: Python 3.8+ (standard library only) and git. Written and used with
 ```
 harness_engineering/
 ├── README.md / README.ko.md            this document
+├── QUICKSTART.md / QUICKSTART.ko.md    5-minute start (incl. Windows notes)
+├── TEAM.md / TEAM.ko.md                rules for using it with more than one person
+├── examples/ko_demo/                   a finished harness: planted with the tools, two sealed work items, a tested script
 ├── build_skill.md / build_skill.ko.md  the procedure the agent runs: conversation → harness
 ├── template/
 │   ├── common/        language-independent: .gitignore, scripts/_shared/chain.py, envload.py
@@ -115,7 +121,7 @@ harness_engineering/
 │   └── ko/            the same in Korean
 ├── tools/seed.py      init (plant the seed) / check (blanks, required files, chain)
 ├── tests/property_test.sh   tries to violate the five properties and checks they hold
-├── VERSION, CHANGELOG.md
+├── LICENSE (MIT), VERSION, CHANGELOG.md
 ```
 
 ### Common body and project slots

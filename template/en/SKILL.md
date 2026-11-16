@@ -39,7 +39,7 @@ The feedback has three parts.
 
 Handle the answer accordingly: if the goal changes, update the REQ (before sealing); if it is a new task, start again from step 2. Do not ask back on light questions or status checks that do not conflict with the goal — just answer.
 
-Working location: `{{PROJECT_PATH}}/` (run every command below from here)
+Working location: the folder this file is in (`{{PROJECT}}/`) — run every command below from here
 
 ## When to use this procedure
 
@@ -81,7 +81,7 @@ If it fails, tell the user before starting. It means someone changed a sealed do
 
 ### 2. Understand the request — REQ
 
-Requests come from chat or from a document placed in `docs/req/` beforehand. First check whether a work item already covers this request (`python3 scripts/_shared/chain.py status`). If an unsealed work item exists, continue it; if a sealed one already finished the same request, do not create a new one — point to its HISTORY. Only when there is none, create the skeleton of a new work item (the sequence number is automatic; the tool refuses if an unsealed work item with the same title or slug exists).
+Requests come from chat or from a document placed in `docs/inbox/` beforehand (`docs/req/` holds only REQs created by the tool — any other file there makes `verify` fail). First check whether a work item already covers this request (`python3 scripts/_shared/chain.py status`). If an unsealed work item exists, continue it; if a sealed one already finished the same request, do not create a new one — point to its HISTORY. Only when there is none, create the skeleton of a new work item (the sequence number is automatic; the tool refuses if an unsealed work item with the same title or slug exists).
 
 ```bash
 python3 scripts/_shared/chain.py new <slug> "<title>"
@@ -89,7 +89,7 @@ python3 scripts/_shared/chain.py new <slug> "<title>"
 
 - `<slug>`: a short name of lowercase letters, digits and underscores. `<title>`: the document title, starting with `{{PREFIX}} ` (e.g. `"{{PREFIX}} what this task does"`)
 - Six files are created: `docs/req|plan|instruction|logs|history/{yyyymmdd}_{seq}_{title}.md` and `scripts/{yyyymmdd}_{seq}_{slug}/MANIFEST.md`. Their bodies come from `docs/_templates/`
-- If the user left a request document in `docs/req/`, copy its content into the REQ's "Original request" and name the source file
+- If the user left a request document in `docs/inbox/`, copy its content into the REQ's "Original request" and name the source file. Inbox files are outside the chain; keep or delete them as you like
 
 What goes in a REQ: background (**purpose**: why, **goal**: what makes it done, **deployment target**: none or `vendor/{app}/`) / **the original request (quoted verbatim)** / a requirements table (R1, R2 … with acceptance criteria) / out of scope and constraints.
 

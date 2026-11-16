@@ -30,7 +30,7 @@ REQUIRED = ["README.md", "SKILL.md", ".env.example", ".gitignore", "docs/README.
             "scripts/_shared/chain.py", "scripts/_shared/envload.py"]
 REQUIRED += [f"docs/_templates/{t}.md" for t in ("req", "plan", "instruction", "task", "log", "history")]
 FILL_CHECKED = ["README.md", "SKILL.md", ".env.example"]
-DOC_DIRS = ["docs/req", "docs/plan", "docs/instruction", "docs/logs", "docs/history"]
+DOC_DIRS = ["docs/req", "docs/plan", "docs/instruction", "docs/logs", "docs/history", "docs/inbox"]
 DEFAULTS = {"en": {"user_call": "Hi", "language": "English"}, "ko": {"user_call": "사용자님", "language": "한국어"}}
 MSG = {
     "en": {"self": "the project root is harness_engineering itself. Clone it inside a project folder.",

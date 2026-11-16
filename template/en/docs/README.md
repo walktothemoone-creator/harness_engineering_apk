@@ -89,3 +89,7 @@ Order of use: when everything is written, run `python3 scripts/_shared/chain.py 
 Only documents created by `chain.py new` live in these five folders. Notes, drafts and run output go in that work item's `scripts/` folder.
 
 One limit to know: the ledger is a file inside `docs/`, so someone who rewrites documents *and* the ledger together cannot be detected from this folder alone. That is why the head is reported outside (in the report to the user, or in a git commit) — a rewritten past no longer matches the head that was reported.
+
+## Request documents — `inbox/`
+
+To give a request as a document instead of in chat, put it in `docs/inbox/`. The agent copies it into the REQ's "Original request". `inbox/` is outside the chain; the five document folders hold only documents created by `chain.py new`.
