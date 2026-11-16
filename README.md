@@ -1,6 +1,6 @@
 # harness_engineering — a seed for harness engineering
 
-**English** · [한국어](README.ko.md)
+**English** · [한국어](README.ko.md) · [Intro page](https://walktothemoone-creator.github.io/harness_engineering_apk/)
 
 Most work with an AI agent starts as a chat: you ask, it answers, you ask again. At some point you notice that the work has a **purpose** and that it **repeats** — and that it will have to continue next week, with a new conversation, maybe with a different agent. Chat prompts do not survive that. A harness does.
 

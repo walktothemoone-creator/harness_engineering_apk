@@ -1,6 +1,6 @@
 # harness_engineering — 하네스 엔지니어링의 씨앗
 
-[English](README.md) · **한국어**
+[English](README.md) · **한국어** · [소개 페이지](https://walktothemoone-creator.github.io/harness_engineering_apk/#ko)
 
 AI 에이전트와 하는 일은 대부분 채팅으로 시작한다. 묻고, 답을 받고, 다시 묻는다. 그러다 어느 순간 이 일에 **목적**이 있고 **반복**된다는 것, 다음 주에도 새 대화로, 어쩌면 다른 에이전트와 이어서 해야 한다는 것을 알게 된다. 채팅 프롬프트는 거기까지 살아남지 못한다. 하네스는 살아남는다.
 
