@@ -79,6 +79,14 @@ html[lang="ko"] [data-l="ko"] { display:revert; }
 <p class="say">Set up a harness for my work from https://github.com/walktothemoone-creator/harness_engineering_apk</p>
 <p>The agent reads the repository's <code>README.md</code> and <code>AGENTS.md</code>, asks a few plain questions about your work, and builds the harness. From then on you only chat: it records, plans, does and checks every request, puts finished results in <code>outputs/</code>, and tells you where things stand whenever you come back. Switch to another agent and the work continues from the same record.</p>
 
+<h2>It sets up the environment for you</h2>
+<p>Before building anything, the agent checks that the computer is ready: Python 3.8+, git, file names in any language, permission to write. If something is missing it tells you in plain words what it would install, and installs only after you agree.</p>
+<ul>
+  <li>Each harness records its environment in <code>ENVIRONMENT.md</code> — nothing personal, no user name or path.</li>
+  <li>The check runs again at the start of every task, so a new computer or an update is noticed.</li>
+  <li>Packages the work needs go into a virtual environment inside the folder, with pinned versions, never into the system Python.</li>
+</ul>
+
 <h2>It gets better as you use it</h2>
 <p>Every harness carries a <code>PLAYBOOK.md</code>: the best way found so far to do the work. Before each task the agent reads it; after each task it asks what went wrong, whether there is a better way, and what is still done by hand — and writes the answers down with the work record they came from.</p>
 <div class="flow"><span>1 Recorded</span><i>→</i><span>2 Repeatable</span><i>→</i><span>3 Tooled</span><i>→</i><span>4 Checked</span><i>→</i><span>5 Self-running</span></div>
@@ -88,7 +96,7 @@ html[lang="ko"] [data-l="ko"] { display:revert; }
   <li><b>Second time, it offers a tool.</b> When the same method is needed again, the agent offers to turn it into a shared, tested script; you decide.</li>
   <li><b>Plain reports.</b> Each task ends with what you now have and where to open it, one suggested improvement, and a last line like "Record: intact — 30 documents".</li>
 </ul>
-<p class="note"><b>Tried end to end.</b> A fresh agent given only the repository address built a harness and ran five tasks in a row (three weekly reports and one improvement). The playbook grew after every task and the recurring work rose from level 1 to 4. In the third week the automatic checks passed a wrong count; the playbook's "read the report" step caught it, and it became a new check. So far tested with Claude only.</p>
+<p class="note"><b>Tried end to end.</b> A fresh agent given only the repository address built a harness and ran five tasks in a row (three weekly reports and one improvement). The playbook grew after every task and the recurring work rose from level 1 to 4. In the third week the automatic checks passed a wrong count; the playbook's "read the report" step caught it, and it became a new check. So far tested with Claude only, on macOS.</p>
 
 <h2>Why</h2>
 <ul>
@@ -174,6 +182,14 @@ python3 scripts/_shared/chain.py seal --dry-run</code></pre>
 <p class="say">이 저장소로 내 일에 맞는 하네스를 만들어 줘: https://github.com/walktothemoone-creator/harness_engineering_apk</p>
 <p>에이전트가 저장소의 <code>README.md</code>와 <code>AGENTS.md</code>를 읽고, 하려는 일에 대해 쉬운 질문 몇 가지를 한 뒤 하네스를 만듭니다. 그다음부터는 채팅만 하면 됩니다. 요청마다 기록하고, 계획하고, 실행하고, 확인하며, 완성된 결과물은 <code>outputs/</code>에 두고, 돌아올 때마다 지금 어디까지 왔는지 알려 줍니다. 다른 에이전트로 바꿔도 같은 기록에서 이어집니다.</p>
 
+<h2>환경 세팅도 에이전트가 합니다</h2>
+<p>무엇이든 만들기 전에 에이전트가 컴퓨터가 준비됐는지 확인합니다. Python 3.8 이상, git, 한글 파일명, 쓰기 권한입니다. 없는 것이 있으면 무엇을 설치할지 쉬운 말로 알리고, 동의한 뒤에만 설치합니다.</p>
+<ul>
+  <li>하네스마다 환경을 <code>ENVIRONMENT.md</code>에 기록합니다. 사용자 이름이나 경로 같은 개인적인 정보는 적지 않습니다.</li>
+  <li>작업을 시작할 때마다 다시 확인해서, 컴퓨터가 바뀌었거나 업데이트된 것을 알아챕니다.</li>
+  <li>일에 필요한 패키지는 시스템 파이썬이 아니라 폴더 안의 가상 환경에, 버전을 고정해 설치합니다.</li>
+</ul>
+
 <h2>쓸수록 나아집니다</h2>
 <p>모든 하네스에는 <code>PLAYBOOK.md</code>가 있습니다. 지금까지 알아낸 가장 좋은 작업 방법입니다. 에이전트는 작업 전에 이것을 읽고, 작업 후에는 무엇이 틀렸는지, 더 좋은 방법이 생겼는지, 아직 손으로 하는 것이 무엇인지 묻고, 근거가 된 작업 기록과 함께 적습니다.</p>
 <div class="flow"><span>1 기록됨</span><i>→</i><span>2 반복 가능</span><i>→</i><span>3 도구화</span><i>→</i><span>4 검사됨</span><i>→</i><span>5 스스로 실행</span></div>
@@ -183,7 +199,7 @@ python3 scripts/_shared/chain.py seal --dry-run</code></pre>
   <li><b>두 번째에는 도구를 제안합니다.</b> 같은 방법이 다시 필요해지면 시험을 갖춘 공용 스크립트로 만들자고 제안하고, 결정은 사용자가 합니다.</li>
   <li><b>쉬운 보고.</b> 작업이 끝나면 무엇이 생겼고 어디서 열어 보는지, 개선 제안 하나, 그리고 "기록: 온전함 — 문서 30개" 같은 마지막 줄로 알려 줍니다.</li>
 </ul>
-<p class="note"><b>처음부터 끝까지 돌려 봤습니다.</b> 저장소 주소만 받은 새 에이전트가 하네스를 만들고 작업 5개(주간 보고서 3번과 개선 1번)를 이어서 했습니다. 작업마다 플레이북이 쌓였고 반복 작업의 수준이 1에서 4로 올라갔습니다. 셋째 주에는 자동 검사가 틀린 건수를 통과시켰는데, 플레이북의 "보고서를 읽는다" 단계가 잡아냈고 새 검사로 추가됐습니다. 지금까지는 Claude로만 시험했습니다.</p>
+<p class="note"><b>처음부터 끝까지 돌려 봤습니다.</b> 저장소 주소만 받은 새 에이전트가 하네스를 만들고 작업 5개(주간 보고서 3번과 개선 1번)를 이어서 했습니다. 작업마다 플레이북이 쌓였고 반복 작업의 수준이 1에서 4로 올라갔습니다. 셋째 주에는 자동 검사가 틀린 건수를 통과시켰는데, 플레이북의 "보고서를 읽는다" 단계가 잡아냈고 새 검사로 추가됐습니다. 지금까지는 macOS에서 Claude로만 시험했습니다.</p>
 
 <h2>왜</h2>
 <ul>
@@ -255,7 +271,7 @@ python3 scripts/_shared/chain.py seal --dry-run</code></pre>
 </div>
 
 <footer>
-  <span data-l="en">Seed v1.3.1. Personal project, MIT license. Questions and feedback: </span><span data-l="ko">씨앗 v1.3.1. 개인 프로젝트, MIT 라이선스. 질문과 피드백: </span><a href="https://github.com/walktothemoone-creator/harness_engineering_apk/issues">GitHub Issues</a>
+  <span data-l="en">Seed v1.4.0. Personal project, MIT license. Questions and feedback: </span><span data-l="ko">씨앗 v1.4.0. 개인 프로젝트, MIT 라이선스. 질문과 피드백: </span><a href="https://github.com/walktothemoone-creator/harness_engineering_apk/issues">GitHub Issues</a>
 </footer>
 </main>
 <script>
